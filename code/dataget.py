@@ -59,20 +59,16 @@ def dataset(args):
 
 def feature_representation(model_drug, args, dataset):
     
-    # model_cir.cuda()
     model_drug.cuda()
-    # model_dis.cuda()
     optimizer1 = torch.optim.Adam(model_drug.parameters(), lr=0.005)
     model_drug = train_cd(model_drug, dataset, optimizer1, args)
     model_drug.eval()
-    # model_dis.eval()
     with torch.no_grad():
         circ_drug,drug_fea,cir_fea = model_drug(dataset)
         # b, dis_fea,drug_fea = model_dis(dataset)
 
     cir_fea = cir_fea.cpu().detach().numpy()
     drug_fea = drug_fea.cpu().detach().numpy()
-    # dis_fea = dis_fea.cpu().detach().numpy()
 
     return  cir_fea, drug_fea
 
@@ -108,7 +104,7 @@ def new_dataset(cir_fea, drug_fea, cd_pairs):
     return samples
 
 def C_Dmatix(cd_pairs,trainindex,testindex):
-    c_dmatix = np.zeros((1885,27))
+    c_dmatix = np.zeros((1594,23))
 
     for i in trainindex:
         if cd_pairs[i][2]==1:
