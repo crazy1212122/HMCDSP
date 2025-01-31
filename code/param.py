@@ -7,7 +7,7 @@ def parameter_parser():
 
     parser.add_argument("--dataset-path",
                         nargs="?",
-                        default="/home/swk/code/CircRDRP/dataset",
+                        default="../dataset",
                         help="Training datasets.")
 
     parser.add_argument("--epoch",
