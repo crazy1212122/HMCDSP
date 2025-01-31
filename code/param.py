@@ -27,7 +27,7 @@ def parameter_parser():
 
     parser.add_argument("--circRNA-number",
                         type=int,
-                        default=1885,
+                        default=1594,
                         help="circRNA number. Default is 585.")
 
     parser.add_argument("--fcir",
@@ -35,10 +35,10 @@ def parameter_parser():
                         default=128,#128
                         help="circRNA feature dimensions. Default is 128.")
 
-    parser.add_argument("--disease-number",
-                        type=int,
-                        default=30,
-                        help="disease number. Default is 88.")
+    # parser.add_argument("--disease-number",
+    #                     type=int,
+    #                     default=30,
+    #                     help="disease number. Default is 88.")
 
     parser.add_argument("--fdis",
                         type=int,
@@ -47,7 +47,7 @@ def parameter_parser():
 
     parser.add_argument("--drug-number",
                         type=int,
-                        default=27,
+                        default=23,
                         help="disease number. Default is 88.")
 
     parser.add_argument("--fdrug",
