@@ -7,7 +7,7 @@ from torch_geometric.data import Data
 import numpy as np
 
 torch.backends.cudnn.enabled = False
-### 3 class in our network, we used GCN_circ and GCN_dis
+### 3 class in our network
 class GCN_circ(nn.Module):
     def __init__(self, args):
         super(GCN_circ, self).__init__()
