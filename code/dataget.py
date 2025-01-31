@@ -33,14 +33,6 @@ def dataset(args):
     c_d_edge = get_edge_index(c_d_data)
     dataset['c_d'] = Data(x=c_d_data, edge_index=c_d_edge)
 
-    # c_dis_data = read_csv(args.dataset_path + '/circ-dis.csv')
-    # c_dis_edge = get_edge_index(c_dis_data)
-    # dataset['c_dis'] = Data(x=c_dis_data,edge_index=c_dis_edge)
-
-    # drug_dis_data = read_csv(args.dataset_path + '/drug-dis.csv')
-    # drug_dis_edge = get_edge_index(drug_dis_data)
-    # dataset['drug_dis'] = Data(x=drug_dis_data,edge_index=drug_dis_edge)
-
     zero_index = []
     one_index = []
     cd_pairs = []
@@ -62,29 +54,9 @@ def dataset(args):
     cc_edge_index = get_edge_index(cc_matrix)
     dataset['circ'] = Data(x=cc_matrix,edge_index=cc_edge_index)
 
-    # dis_matrix = read_csv(args.dataset_path + '/dis.csv')
-    # dis_edge_index = get_edge_index(dis_matrix)
-    # dataset['dis'] = Data(x=dis_matrix,edge_index=dis_edge_index)
 
     return dataset, cd_pairs
 
-# def feature_representation(model_cir, model_dis, args, dataset):
-    
-#     model_cir.cuda()
-#     model_dis.cuda()
-#     optimizer1 = torch.optim.Adam(model_cir.parameters(), lr=0.005)
-#     model_cir,model_dis = train1(model_cir,model_dis, dataset, optimizer1, args)
-#     model_cir.eval()
-#     model_dis.eval()
-#     with torch.no_grad():
-#         circ_dis,cir_fea,dis_fea = model_cir(dataset)
-#         b, dis_fea,drug_fea = model_dis(dataset)
-
-#     cir_fea = cir_fea.cpu().detach().numpy()
-#     drug_fea = drug_fea.cpu().detach().numpy()
-#     dis_fea = dis_fea.cpu().detach().numpy()
-
-#     return  cir_fea, drug_fea, dis_fea
 def feature_representation(model_drug, args, dataset):
     
     # model_cir.cuda()
